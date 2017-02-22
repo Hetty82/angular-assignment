@@ -1,7 +1,7 @@
 {
-  "name": "deviant-angular-assignment",
+  "name": "angular-assignment",
   "version": "1.0.0",
-  "description": "Assignment for Deviant application based on Angular 2 quickstart project",
+  "description": "Small assignment application based on Angular 2 quickstart project",
   "scripts": {
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",
