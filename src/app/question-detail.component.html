@@ -1,2 +1,15 @@
 <h3>Vraag {{question.questionId}}</h3>
+
 <p>{{question.question}}</p>
+
+<ul *ngIf="question.questionType === 'multiple_choice'" class="answers">
+  <li *ngFor="let answer of question.answers">
+    <label>
+      <input type="radio" name="answer" value="answer.answerId">
+      {{answer.answer}}
+    </label>
+  </li>
+</ul>
+
+<textarea *ngIf="question.questionType === 'open_question'"
+  name="userAnswer" id="userAnswer" rows="10"></textarea>

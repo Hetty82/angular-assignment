@@ -62,3 +62,6 @@ Apart from the angular requirements you probably want to run this in Chrome or a
 1. Create InfoService
 2. Use data from original data object for both info and questions
 
+### Show all the question details
+1. Show radios with answers if multiple choice
+2. Show textarea input otherwise

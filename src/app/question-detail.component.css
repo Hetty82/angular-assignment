@@ -6,3 +6,11 @@ h3 {
   margin-bottom: 0.5em;
   color: var(--purple);
 }
+.answers {
+  margin: 0; padding: 0; list-style: none;
+}
+
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+}
