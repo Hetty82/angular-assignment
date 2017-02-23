@@ -42,4 +42,7 @@ Apart from the angular requirements you probably want to run this in Chrome or a
 4. Style it up a bit
 5. Add hand in button that doesnt do anything yet
 
-
+### Split up some files
+1. Move Question class to its own file
+2. Create separate QuestionDetailComponent
+3. Move templates and styles to their own files

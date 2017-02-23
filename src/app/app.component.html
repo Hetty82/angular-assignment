@@ -1,0 +1,16 @@
+<header>
+  <h1>{{name}}</h1>
+  <h2>{{introText}}</h2>
+
+  <button *ngIf="!isStarted" (click)='start()'>→ Start!</button>
+  <button *ngIf="isStarted" (click)='reStart()'>↻ Begin opnieuw</button>
+</header>
+
+<ul *ngIf="isStarted" class="questions">
+  <li *ngFor="let question of questions">
+    <my-question-detail [question]="question"></my-question-detail>
+  </li>
+</ul>
+<footer>
+  <button *ngIf="isStarted" (click)='handIn()'>↓ Lever in</button>
+</footer>

@@ -1,12 +1,7 @@
-import { Component } from '@angular/core';
+import { Component }       from '@angular/core';
 
-export class Question {
-  questionId: number;
-  question: string;
-  // isMultipleChoice: boolean;
-  // answers: object;
-  // userAsnwer: string;
-}
+import { Question }                   from './question';
+import { QuestionDetailComponent }    from './question-detail.component'
 
 const QUESTIONS: Question[] = [
   {
@@ -76,55 +71,10 @@ const QUESTIONS: Question[] = [
 ];
 
 @Component({
+  moduleId: module.id,
   selector: 'my-app',
-  template: `
-    <header>
-      <h1>{{name}}</h1>
-      <h2>{{introText}}</h2>
-
-      <button *ngIf="!isStarted" (click)='start()'>→ Start!</button>
-      <button *ngIf="isStarted" (click)='reStart()'>↻ Begin opnieuw</button>
-    </header>
-
-    <ul *ngIf="isStarted" class="questions">
-      <li *ngFor="let question of questions">
-        <h3>Vraag {{question.questionId}}</h3>
-        <p>{{question.question}}</p>
-      </li>
-    </ul>
-    <footer>
-      <button *ngIf="isStarted" (click)='handIn()'>↓ Lever in</button>
-    </footer>
-  `,
-  styles: [`
-    header {
-      margin-bottom: 2em;
-    }
-
-    h1 {
-      margin-bottom: 0.2em;
-    }
-
-    .questions {
-      margin: 0; padding: 0; list-style: none;
-    }
-
-    .questions li {
-      padding: 1em;
-      margin-bottom: 2em;
-      background: var(--turquoise);
-      color: white;
-    }
-
-    .questions p {
-      line-height: 1.4;
-    }
-
-    h3 {
-      margin-bottom: 0.5em;
-      color: var(--purple);
-    }`
-  ],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent  {
