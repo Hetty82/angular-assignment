@@ -81,14 +81,20 @@ const QUESTIONS: Question[] = [
     <header>
       <h1>{{name}}</h1>
       <h2>{{introText}}</h2>
+
+      <button *ngIf="!isStarted" (click)='start()'>→ Start!</button>
+      <button *ngIf="isStarted" (click)='reStart()'>↻ Begin opnieuw</button>
     </header>
 
-    <ul class="questions">
+    <ul *ngIf="isStarted" class="questions">
       <li *ngFor="let question of questions">
         <h3>Vraag {{question.questionId}}</h3>
         <p>{{question.question}}</p>
       </li>
     </ul>
+    <footer>
+      <button *ngIf="isStarted" (click)='handIn()'>↓ Lever in</button>
+    </footer>
   `,
   styles: [`
     header {
@@ -122,8 +128,30 @@ const QUESTIONS: Question[] = [
 })
 
 export class AppComponent  {
-  // todo: get name and introText from real data
+  // todo: get values from real data
   name = 'Opdracht 1';
   introText = 'Vragen over ons Koningshuis';
   questions = QUESTIONS;
+
+  // initialize isStarted
+  isStarted = false;
+
+  // start assigment
+  start(): void {
+    this.isStarted = true;
+  }
+
+  // restart assigment
+  reStart(): void {
+    this.isStarted = true;
+    // todo: clear answers here
+    // todo: clear localStorage
+  }
+
+  // handin assignment
+  handIn(): void {
+    // todo: save to local storage
+    // todo: check answers
+    // todo: show (corrected) answers
+  }
 }
