@@ -1,0 +1,11 @@
+<div class="result">
+  <h3>Resultaat:</h3>
+
+  <ul class="questions">
+    <li *ngFor="let question of questions">
+      <my-question-detail [question]="question" [status]="status"></my-question-detail>
+    </li>
+  </ul>
+
+  <button (click)='reStart()' class="restart">↻ Unhappy? Begin opnieuw</button>
+</div>

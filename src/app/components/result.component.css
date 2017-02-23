@@ -1,0 +1,13 @@
+.restart {
+  margin-bottom: 2em;
+}
+
+.questions {
+  margin: 0; padding: 0; list-style: none;
+}
+
+.questions li {
+  padding: 1em;
+  margin-bottom: 2em;
+  background: var(--turquoise);
+  color: white;

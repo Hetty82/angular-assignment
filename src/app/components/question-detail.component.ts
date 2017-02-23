@@ -10,6 +10,6 @@ import { Question } from '../models/question';
 })
 
 export class QuestionDetailComponent {
-  @Input()
-  question: Question;
+  @Input() status: string;
+  @Input() question: Question;
 }

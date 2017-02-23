@@ -2,17 +2,16 @@
   <h1>{{name}}</h1>
   <h2>{{introText}}</h2>
 
-  <button *ngIf="!isStarted" (click)='start()' class="start">→ Start!</button>
+  <button *ngIf="status === 'unstarted'" (click)='start()' class="start">→ Start!</button>
 </header>
 
-<form *ngIf="isStarted" #form="ngForm" (ngSubmit)='handIn(form.value, form.valid)' novalidate>
-  <button *ngIf="isStarted" (click)='reStart()' class="restart">↻ Begin opnieuw</button>
-  <ul class="questions">
-    <li *ngFor="let question of questions">
-      <my-question-detail [question]="question"></my-question-detail>
-    </li>
-  </ul>
-  <footer>
-    <button type="submit">↓ Lever in</button>
-  </footer>
-</form>
+<!-- show form is user has pressed start -->
+<my-form *ngIf="status === 'started'"
+  [status]="status"
+  (onSubmit)="onSubmit($event)"
+  (onRestart)="onRestart($event)"></my-form>
+
+<!-- show result if user has submitted -->
+<my-result *ngIf="status === 'submitted'"
+  [status]="status"
+  (onRestart)="onRestart($event)"></my-result>

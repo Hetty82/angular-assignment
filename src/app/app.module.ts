@@ -8,7 +8,14 @@ import { InMemoryWebApiModule }      from 'angular-in-memory-web-api';
 import { InMemoryDataService }       from './services/in-memory-data.service';
 
 import { AppComponent }              from './components/app.component';
+import { FormComponent }             from './components/form.component';
+import { ResultComponent }           from './components/result.component';
 import { QuestionDetailComponent }   from './components/question-detail.component';
+
+import { QuestionService }            from './services/question.service';
+import { InfoService }                from './services/info.service';
+import { LocalStorageDataService }    from './services/local-storage-data.service';
+
 
 @NgModule({
   imports: [
@@ -19,7 +26,14 @@ import { QuestionDetailComponent }   from './components/question-detail.componen
   ],
   declarations: [
     AppComponent,
+    FormComponent,
+    ResultComponent,
     QuestionDetailComponent,
+  ],
+  providers: [
+    QuestionService,
+    InfoService,
+    LocalStorageDataService,
   ],
   bootstrap: [ AppComponent ]
 })
