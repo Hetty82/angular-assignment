@@ -4,7 +4,7 @@
   "questions": [
     {
       "questionId": 1,
-      "question": "Wat is de politieke vorm van Nederland",
+      "question": "Wat is de politieke vorm van Nederland?",
       "questionType": "multiple_choice",
       "answers": [
         {

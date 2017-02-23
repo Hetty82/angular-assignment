@@ -1,5 +1,41 @@
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+:root {
+  --gray-lightest: #f2f2f2;
+  --gray-light: #e1e8f0;
+  --gray-medium: #858585;
+  --gray-dark: #292929;
+  --purple: #9068be;
+  --red: #e62739;
+  --turquoise: #6ed3cf;
 }
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-size: 1rem;
+  background: var(--gray-lightest);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--gray-dark);
+}
+
+my-app {
+  display: block;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5vh 1em;
+}
+h1 {
+  font-size: 3em;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+}
+

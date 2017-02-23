@@ -25,3 +25,10 @@ Build small Angular 2 application using TypeScript and Http, based on given inst
 
 ## Building the app
 *Go through the angular.io tutorial again but now to use it for building this app*
+
+### Start showing some stuff
+1. Show name and introtext in AppComponent
+2. Show first question (id and question text) in AppComponent
+3. Show all questions in AppComponent
+4. Style it up a bit
+
