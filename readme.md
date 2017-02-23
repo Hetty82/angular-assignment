@@ -58,3 +58,7 @@ Apart from the angular requirements you probably want to run this in Chrome or a
 1. Update the QuesionService and use in-memory-web-api to fake a backend
 2. CreateDB and remove other mock data files
 
+### Use original data object
+1. Create InfoService
+2. Use data from original data object for both info and questions
+

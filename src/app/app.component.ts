@@ -3,30 +3,31 @@ import { Component, OnInit }       from '@angular/core';
 import { Question }                   from './question';
 import { QuestionDetailComponent }    from './question-detail.component';
 import { QuestionService }            from './question.service';
+import { InfoService }                from './info.service';
 
 @Component({
   moduleId: module.id,
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [QuestionService],
+  providers: [QuestionService, InfoService],
 })
 
 export class AppComponent implements OnInit {
-  // todo: get values from real data
-  name = 'Opdracht 1';
-  introText = 'Vragen over ons Koningshuis';
   questions: Question[];
+  name: string;
+  introText: string;
 
-  // initialize isStarted
   isStarted = false;
 
   // constructor
   constructor(
     private questionService: QuestionService,
+    private infoService: InfoService,
   ) {}
 
   ngOnInit(): void {
+    this.getInfo();
     this.getQuestions();
   }
 
@@ -47,6 +48,14 @@ export class AppComponent implements OnInit {
     // todo: save to local storage
     // todo: check answers
     // todo: show (corrected) answers
+  }
+
+  getInfo(): void {
+    this.infoService.getInfo()
+      .then(info => {
+         this.name = info.name;
+         this.introText = info.introText;
+      })
   }
 
   getQuestions(): void {
