@@ -50,3 +50,11 @@ Apart from the angular requirements you probably want to run this in Chrome or a
 ### Add data service
 1. Move questions array out of AppComponent
 2. Use a service to fetch a promise of a Questions array
+
+### Routing
+*I decided to not use routes but leave all in one view without navigation*
+
+### Use http
+1. Update the QuesionService and use in-memory-web-api to fake a backend
+2. CreateDB and remove other mock data files
+

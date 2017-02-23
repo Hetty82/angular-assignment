@@ -1,12 +1,28 @@
-import { Injectable }   from '@angular/core';
+import { Injectable }     from '@angular/core';
+import { Headers, Http }  from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
 
 import { Question }     from './question';
-import { QUESTIONS }    from './mock-questions';
 
 @Injectable()
 
 export class QuestionService {
+  private questionsUrl = 'api/questions';
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
+  }
+
+  constructor(
+    private http: Http
+  ) {}
+
   getQuestions(): Promise<Question[]> {
-    return Promise.resolve(QUESTIONS);
+    let questionsPromise = this.http.get(this.questionsUrl)
+      .toPromise()
+      .then(response => response.json().data as Question[])
+      .catch(this.handleError);
+    return questionsPromise;
   }
 }
