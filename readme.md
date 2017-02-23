@@ -65,3 +65,6 @@ Apart from the angular requirements you probably want to run this in Chrome or a
 ### Show all the question details
 1. Show radios with answers if multiple choice
 2. Show textarea input otherwise
+
+### Refactor
+1. Add folders
