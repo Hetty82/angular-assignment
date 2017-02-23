@@ -46,3 +46,7 @@ Apart from the angular requirements you probably want to run this in Chrome or a
 1. Move Question class to its own file
 2. Create separate QuestionDetailComponent
 3. Move templates and styles to their own files
+
+### Add data service
+1. Move questions array out of AppComponent
+2. Use a service to fetch a promise of a Questions array
