@@ -3,11 +3,15 @@
 <p>{{question.question}}</p>
 
 <!-- show form fields if assigment is started -->
+<!-- <div> -->
 <div *ngIf="status === 'started'">
   <ul *ngIf="question.questionType === 'multiple_choice'" class="answers">
     <li *ngFor="let answer of question.answers">
       <label>
-        <input [(ngModel)]="question.userAnswer" type="radio" name="answer" [value]="answer.answerId">
+        <!-- todo remove change event -->
+        <input [(ngModel)]="question.userAnswer"
+          [value]="answer.answerId"
+          type="radio" name="answer">
         {{answer.answer}}
       </label>
     </li>
@@ -19,15 +23,18 @@
 
 <!-- show results if assignment is submitted -->
 <div *ngIf="status === 'submitted'">
+<!-- <div > -->
   <ul *ngIf="question.questionType === 'multiple_choice'" class="answers">
-    <li *ngFor="let answer of question.answers" [class.correct]="answer.isCorrect">
-      <label>
-        <input type="radio" name="answer" value="answer.answerId">
+    <li *ngFor="let answer of question.answers"
+      [ngClass]="{'is-correct': answer.isCorrect}"
+      [ngClass]="{'is-user-answer': answer.answerId === question.userAnswer}">
+        {{answer.answerId}}
+        {{question.userAnswer}}
         {{answer.answer}}
-      </label>
     </li>
   </ul>
 
   <p *ngIf="question.questionType === 'open_question'"
     id="userAnswer">{{question.userAnswer}}</p>
+
 </div>

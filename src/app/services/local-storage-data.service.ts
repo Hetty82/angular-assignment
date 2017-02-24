@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
 
+import { Question }   from '../models/question';
+
 @Injectable()
 
 export class LocalStorageDataService {
 
-  set(userAnswers) {
-    localStorage.setItem('assignmentAnswers', JSON.stringify(userAnswers))
+  set(questions: Question[]) {
+    localStorage.setItem('assignmentQuestions', JSON.stringify(questions))
   }
 
   get() {
-    let data = JSON.parse(localStorage.getItem('assignmentAnswers'));
+    let data = JSON.parse(localStorage.getItem('assignmentQuestions'));
 
-    if (!data) {
-      return undefined;
-     }
+    if (!data) { return undefined; }
 
     return data ;
+  }
+
+  delete() {
+    localStorage.removeItem('assignmentQuestions');
   }
 }

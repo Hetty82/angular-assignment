@@ -72,16 +72,13 @@ Apart from the angular requirements you probably want to run this in Chrome or a
 3. Start sharing data between parents and childers
 4. Add a resultComponent
 
-<!--  todo -->
 ### Make the form inputs work
-1. Save user input to new Answers object
-2. Save AnswerObject to localStorage
-3. Assign user input question.userAnswer
+1. Save user input to localStorage
+2. Load data from localStorage onInit if it's there
 
+<!-- todo -->
 ### Make the results show corrections
 1. Compare MC-answers to question.isCorrect
 2. Show results with corrections
 3. Style it up conform instructions
 
-### Get answers on from local Storage on load
-1. Load answers from localStorage into form onInit

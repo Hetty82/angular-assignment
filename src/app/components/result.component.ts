@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter }  from '@angular/core';
+import { FormsModule }                from '@angular/forms';
 
 import { Question }                   from '../models/question';
 import { QuestionDetailComponent }    from '../components/question-detail.component';
@@ -31,12 +32,29 @@ export class ResultComponent implements OnInit {
   // restart assigment
   reStart(): void {
     console.log('restarted!');
+
+    // delete questions both in memory as in localStorage
+    this.deleteQuestionsFromStorage()
+    this.questions = [];
+
+    // emit event to parent
     this.onRestart.emit(true);
-    // todo: clear localStorage
   }
 
+  // Get questions from api unless found in storage
   getQuestions(): void {
-    this.questionService.getQuestions()
-      .then(questions => this.questions = questions);
+    this.getQuestionsFromStorage();
   }
+
+  getQuestionsFromStorage(): void {
+    this.questions = this.localStorageDataService.get();
+  }
+
+  deleteQuestionsFromStorage(): void {
+    this.localStorageDataService.delete();
+  }
+
+  // todo: remove when done
+  get diagnostic() { return JSON.stringify(this.questions, null, 2); }
+
 }

@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input }     from '@angular/core';
+import { FormsModule }          from '@angular/forms';
 
-import { Question } from '../models/question';
+import { Question }             from '../models/question';
 
 @Component({
   moduleId: module.id,
@@ -12,4 +13,9 @@ import { Question } from '../models/question';
 export class QuestionDetailComponent {
   @Input() status: string;
   @Input() question: Question;
+
+  // todo: remove, for testing
+  // onChange(event, question: Question): void {
+  //   console.log(event.target, question.userAnswer)
+  // }
 }

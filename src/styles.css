@@ -55,3 +55,9 @@ button:hover {
   background: var(--purple-dark);
 }
 
+pre {
+  background: white;
+  font-size: 80%;
+  overflow-x: auto;
+}
+

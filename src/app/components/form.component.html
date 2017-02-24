@@ -1,6 +1,8 @@
 <form novalidate>
   <button (click)='reStart()' class="restart">↻ Begin opnieuw</button>
 
+  <pre>{{diagnostic}}</pre>
+
   <ul class="questions">
     <li *ngFor="let question of questions">
       <my-question-detail [question]="question" [status]="status"></my-question-detail>
@@ -8,6 +10,6 @@
   </ul>
 
   <footer>
-    <button type="submit" (click)='handIn()'>↓ Lever in</button>
+    <button type="submit" (click)='handIn($event)'>↓ Lever in</button>
   </footer>
 </form>

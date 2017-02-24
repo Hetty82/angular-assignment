@@ -28,38 +28,63 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getQuestions();
-    this.getAnswersFromStorage();
   }
 
-  // restart assigment
+  // restart assigment, todo: merge this with result.reStart()
   reStart(): void {
     console.log('restarted!');
+
+    // delete questions both in memory as in localStorage
+    this.deleteQuestionsFromStorage()
+    this.questions = [];
+
+    // emit event to parent
     this.onRestart.emit(true);
-    // todo: clear answers here
-    // todo: clear localStorage
   }
 
   // handin assignment
-  handIn(): void {
+  handIn(event: Event): void {
+    // event.preventDefault();
     console.log('ingeleverd!');
+
+    // save questions in localStorage
+    this.saveQuestionsToStorage(this.questions);
+
+    // todo: chick this: fill questions with data from local storage
+    this.getQuestionsFromStorage();
+
+    // emit event to parent
     this.onSubmit.emit(true);
-    // todo: collect answers
-    // todo: save answers to local storage
-    // todo: check answers
-    // todo: show (corrected) answers
+
+    // this fails in the service
+    // this.questions.forEach(question => {
+    //   this.questionService.update(question);
+    // })
   }
 
+  // Get questions from api unless found in storage or from api
   getQuestions(): void {
-    this.questionService.getQuestions()
-      .then(questions => this.questions = questions);
+    let questionsFromStorage = this.getQuestionsFromStorage();
+
+    if (!questionsFromStorage) {
+      this.questionService.getQuestions()
+        .then(questions => this.questions = questions);
+    }
   }
 
-  getAnswersFromStorage(): void {
-    this.userAnswers = this.localStorageDataService.get();
-    // console.log(this.userAnswers);
+  getQuestionsFromStorage(): void {
+    this.questions = this.localStorageDataService.get();
   }
 
-  setAnswersToStorage(): void {
-    this.localStorageDataService.set(this.userAnswers);
+  saveQuestionsToStorage(questions: Question[]): void {
+    this.localStorageDataService.set(this.questions);
+    console.log('on handIn() call to saveQuestionsFromStorage: ', this.questions);
   }
+
+  deleteQuestionsFromStorage(): void {
+    this.localStorageDataService.delete();
+  }
+
+  // todo: remove when done
+  get diagnostic() { return JSON.stringify(this.questions, null, 2); }
 }
