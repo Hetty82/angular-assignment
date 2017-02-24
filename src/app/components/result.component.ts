@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter }  from '@angular/core';
+import { Component, Input, Output, EventEmitter }  from '@angular/core';
 import { FormsModule }                from '@angular/forms';
 
 import { Question }                   from '../models/question';
@@ -11,7 +11,7 @@ import { QuestionComponent }          from '../components/question.component';
   styleUrls: ['./result.component.css'],
 })
 
-export class ResultComponent implements OnInit {
+export class ResultComponent {
   @Input() status: string;
   @Input() questions: Question[];
 

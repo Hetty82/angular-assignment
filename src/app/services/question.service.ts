@@ -28,15 +28,4 @@ export class QuestionService {
       .catch(this.handleError);
     return questionsPromise;
   }
-
-  // // todo: fix broken returns error 404
-  // update(question: Question): Promise<Question> {
-  //   const url = `${this.questionsUrl}?questionId=${question.questionId}`;
-  //   console.log(this.questionsUrl, question)
-  //   return this.http
-  //     .put(url, JSON.stringify(question), {headers: this.headers})
-  //     .toPromise()
-  //     .then(() => question)
-  //     .catch(this.handleError);
-  // }
 }

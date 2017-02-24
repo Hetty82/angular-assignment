@@ -87,7 +87,6 @@ export class AppComponent implements OnInit {
 
   saveQuestionsToStorage(questions: Question[]): void {
     this.localStorageDataService.set(this.questions);
-    console.log('on handIn() call to saveQuestionsFromStorage: ', this.questions);
   }
 
   deleteQuestionsFromStorage(): void {

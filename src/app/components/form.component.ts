@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter }   from '@angular/core';
+import { Component, Input, Output, EventEmitter }   from '@angular/core';
 import { FormsModule }                from '@angular/forms';
 
 import { Question }                   from '../models/question';
-import { QuestionComponent }          from '../components/question.component';
 
 @Component({
   moduleId: module.id,
@@ -11,7 +10,7 @@ import { QuestionComponent }          from '../components/question.component';
   styleUrls: ['./form.component.css'],
 })
 
-export class FormComponent implements OnInit {
+export class FormComponent {
   @Input() status: string;
   @Input() questions: Question[];
 

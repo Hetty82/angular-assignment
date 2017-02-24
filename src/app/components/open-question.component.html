@@ -1,0 +1,11 @@
+<!-- show form fields if assigment is started -->
+<div *ngIf="status === 'started'">
+  <textarea [(ngModel)]="question.userAnswer"
+    name="userAnswer" id="userAnswer" rows="10"></textarea>
+</div>
+
+<!-- show results if assignment is submitted -->
+<div *ngIf="status === 'submitted'">
+  <p
+    id="userAnswer">{{question.userAnswer}}</p>
+</div>

@@ -69,16 +69,21 @@ Apart from the angular requirements you probably want to run this in Chrome or a
 ### Feel puzzled, research and refactor
 1. Refactor into folders
 2. Refactor into more components
-3. Start sharing data between parents and childers
+3. Start sharing data between parents and children
 4. Add a resultComponent
 
 ### Make the form inputs work
 1. Save user input to localStorage
 2. Load data from localStorage onInit if it's there
 
-<!-- todo -->
 ### Make the results show corrections
 1. Compare MC-answers to question.isCorrect
+
+<!-- todo -->
 2. Show results with corrections
 3. Style it up conform instructions
 
+### Refactor
+1. Method naming
+2. Add function comments
+3. Move components in their own folder

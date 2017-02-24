@@ -2,35 +2,12 @@
 
 <p>{{question.question}}</p>
 
-<!-- show form fields if assigment is started -->
-<div *ngIf="status === 'started'">
-  <ul *ngIf="question.questionType === 'multiple_choice'" class="answers">
-    <li *ngFor="let answer of question.answers">
-      <label>
-        <input [(ngModel)]="question.userAnswer"
-          [value]="answer.answerId"
-          type="radio" name="answer">
-        {{answer.answer}}
-      </label>
-    </li>
-  </ul>
+<!-- show form is user has pressed start -->
+<my-open-question *ngIf="question.questionType === 'open_question'"
+  [status]="status"
+  [question]="question"></my-open-question>
 
-  <textarea *ngIf="question.questionType === 'open_question'" [(ngModel)]="question.userAnswer"
-    name="userAnswer" id="userAnswer" rows="10"></textarea>
-</div>
-
-<!-- show results if assignment is submitted -->
-<div *ngIf="status === 'submitted'">
-  <ul *ngIf="question.questionType === 'multiple_choice'" class="answers">
-    <li *ngFor="let answer of question.answers"
-      [ngClass]="{'is-correct': answer.isCorrect, 'is-user-answer': (answer.answerId === question.userAnswer)}">
-        {{answer.answerId}}
-        {{question.userAnswer}}
-        {{answer.answer}}
-    </li>
-  </ul>
-
-  <p *ngIf="question.questionType === 'open_question'"
-    id="userAnswer">{{question.userAnswer}}</p>
-
-</div>
+<!-- show result if user has submitted -->
+<my-multiple-choice-question *ngIf="question.questionType === 'multiple_choice'"
+  [status]="status"
+  [question]="question"></my-multiple-choice-question>
