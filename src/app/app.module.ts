@@ -10,7 +10,7 @@ import { InMemoryDataService }       from './services/in-memory-data.service';
 import { AppComponent }              from './components/app.component';
 import { FormComponent }             from './components/form.component';
 import { ResultComponent }           from './components/result.component';
-import { QuestionDetailComponent }   from './components/question-detail.component';
+import { QuestionComponent }         from './components/question.component';
 
 import { QuestionService }            from './services/question.service';
 import { InfoService }                from './services/info.service';
@@ -28,7 +28,7 @@ import { LocalStorageDataService }    from './services/local-storage-data.servic
     AppComponent,
     FormComponent,
     ResultComponent,
-    QuestionDetailComponent,
+    QuestionComponent,
   ],
   providers: [
     QuestionService,

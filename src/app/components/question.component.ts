@@ -5,12 +5,12 @@ import { Question }             from '../models/question';
 
 @Component({
   moduleId: module.id,
-  selector: 'my-question-detail',
-  templateUrl: './question-detail.component.html',
-  styleUrls: ['./question-detail.component.css'],
+  selector: 'my-question',
+  templateUrl: './question.component.html',
+  styleUrls: ['./question.component.css'],
 })
 
-export class QuestionDetailComponent {
+export class QuestionComponent {
   @Input() status: string;
   @Input() question: Question;
 }

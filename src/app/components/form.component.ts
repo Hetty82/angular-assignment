@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter }   from '@angular/core'
 import { FormsModule }                from '@angular/forms';
 
 import { Question }                   from '../models/question';
-import { QuestionDetailComponent }    from '../components/question-detail.component';
+import { QuestionComponent }          from '../components/question.component';
 
 @Component({
   moduleId: module.id,
