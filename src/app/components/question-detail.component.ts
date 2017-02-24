@@ -13,9 +13,4 @@ import { Question }             from '../models/question';
 export class QuestionDetailComponent {
   @Input() status: string;
   @Input() question: Question;
-
-  // todo: remove, for testing
-  // onChange(event, question: Question): void {
-  //   console.log(event.target, question.userAnswer)
-  // }
 }

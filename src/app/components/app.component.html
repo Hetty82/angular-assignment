@@ -8,10 +8,12 @@
 <!-- show form is user has pressed start -->
 <my-form *ngIf="status === 'started'"
   [status]="status"
+  [questions]="questions"
   (onSubmit)="onSubmit($event)"
   (onRestart)="onRestart($event)"></my-form>
 
 <!-- show result if user has submitted -->
 <my-result *ngIf="status === 'submitted'"
   [status]="status"
+  [questions]="questions"
   (onRestart)="onRestart($event)"></my-result>
