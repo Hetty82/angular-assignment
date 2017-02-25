@@ -28,5 +28,5 @@ export class FormComponent {
   }
 
   // uncomment for debugging
-  get diagnostic() { return JSON.stringify(this.questions, null, 2); }
+  // get diagnostic() { return JSON.stringify(this.questions, null, 2); }
 }

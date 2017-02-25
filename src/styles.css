@@ -61,3 +61,7 @@ pre {
   overflow-x: auto;
 }
 
+pre:empty {
+  display: none;
+}
+

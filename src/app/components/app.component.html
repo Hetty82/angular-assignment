@@ -2,6 +2,8 @@
   <h1>{{name}}</h1>
   <h2>{{introText}}</h2>
 
+  <pre>{{diagnostic}}</pre>
+
   <button *ngIf="status === 'unstarted'" (click)='start()' class="start">→ Start!</button>
 </header>
 

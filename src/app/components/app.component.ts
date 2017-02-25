@@ -92,4 +92,7 @@ export class AppComponent implements OnInit {
   deleteQuestionsFromStorage(): void {
     this.localStorageDataService.delete();
   }
+
+  // uncomment for debugging
+  // get diagnostic() { return JSON.stringify(this.questions, null, 2); }
 }
