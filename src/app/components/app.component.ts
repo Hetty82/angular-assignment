@@ -26,44 +26,35 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getInfo();
-    this.getQuestions();
+    this.setInfo();
+    this.setQuestions();
   }
 
-  // events emitted from children
-
-  // start assigment to load form
+  // set status to load form
   start(): void {
     this.status = 'started';
   }
 
-  // set isSubmitted if child compnent has restarted
+  // set status and clear data if child compnent has restarted
   onRestart(): void {
     this.status = 'started';
-    this.reStart();
+    this.clearAssignment();
   }
 
-  // set isSubmitted if child form is submitted
+  // set status and save data if child form is submitted
   onSubmit(): void {
     this.status = 'submitted';
-    this.handIn();
-  }
-
-  // own methods
-
-  // clean storage and retrieve clean questions
-  reStart(): void {
-    this.deleteQuestionsFromStorage()
-    this.getQuestions();
-  }
-
-  // save to storage on handin
-  handIn(): void {
     this.saveQuestionsToStorage(this.questions);
   }
 
+  // clean storage and retrieve clean questions
+  clearAssignment(): void {
+    this.deleteQuestionsFromStorage()
+    this.setQuestionsFromApi();
+  }
+
   // get data for header
-  getInfo(): void {
+  setInfo(): void {
     this.infoService.getInfo()
       .then(info => {
          this.name = info.name;
@@ -71,22 +62,30 @@ export class AppComponent implements OnInit {
       })
   }
 
-  // Get questions from api unless found in storage
-  getQuestions(): void {
-    let questionsFromStorage = this.getQuestionsFromStorage();
-
-    if (!questionsFromStorage) {
-      this.questionService.getQuestions()
-        .then(questions => this.questions = questions);
+  // Set questions from api unless found in storage
+  setQuestions(): void {
+    this.setQuestionsFromStorage()
+    if (!this.questions) {
+      this.setQuestionsFromApi()
     }
   }
 
-  getQuestionsFromStorage(): void {
+  // Set clean questions from api
+  setQuestionsFromApi(): void {
+    this.questionService.getQuestions()
+      .then(questions => this.questions = questions);
+  }
+
+  // Set questions and status from storage
+  setQuestionsFromStorage(): void {
     this.questions = this.localStorageDataService.get();
+    if (this.questions) {
+      this.status = 'submitted';
+    }
   }
 
   saveQuestionsToStorage(questions: Question[]): void {
-    this.localStorageDataService.set(this.questions);
+    this.localStorageDataService.set(questions);
   }
 
   deleteQuestionsFromStorage(): void {

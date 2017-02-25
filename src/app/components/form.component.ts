@@ -23,7 +23,7 @@ export class FormComponent {
   }
 
   // emit handin event to parent
-  handIn(): void {
+  submit(): void {
     this.onSubmit.emit(true);
   }
 
