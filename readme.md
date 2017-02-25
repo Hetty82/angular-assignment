@@ -78,12 +78,10 @@ Apart from the angular requirements you probably want to run this in Chrome or a
 
 ### Make the results show corrections
 1. Compare MC-answers to question.isCorrect
-
-<!-- todo -->
 2. Show results with corrections
 3. Style it up conform instructions
 
-### Refactor
-1. Method naming
-2. Add function comments
-3. Move components in their own folder
+### Refactor en bugfix
+1. Fix load from storage
+2. Method naming
+3. Add function comments

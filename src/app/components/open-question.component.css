@@ -2,3 +2,12 @@ textarea {
   box-sizing: border-box;
   width: 100%;
 }
+
+.open-answer {
+  color: var(--gray-medium);
+  font-style: italic;
+  padding: 1em;
+  border: 2px solid var(--gray-medium);
+  border-radius: 4px;
+  background: var(--gray-light);
+}

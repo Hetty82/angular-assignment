@@ -1,3 +1,41 @@
 .answers {
   margin: 0; padding: 0; list-style: none;
 }
+
+.user-is-right,
+.user-is-wrong {
+  position: relative;
+  color: var(--gray-dark);
+}
+
+.user-is-right span,
+.user-is-wrong span {
+  position: relative;
+  display: inline-block;
+}
+
+.user-is-wrong {
+  text-decoration: line-through;
+}
+
+.user-is-right span::after,
+.user-is-wrong span::after {
+  display: block;
+  position: absolute;
+  bottom:0; right: 0%;
+  font-size: 2em;
+  margin-left: 0.1em;
+  transform: translate(150%, 20%);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.user-is-right span::after {
+  content:"\2713";
+  color: #32CD32;
+}
+
+.user-is-wrong span::after {
+  content: "\2718";
+  color: red;
+  text-decoration: none;
+}
